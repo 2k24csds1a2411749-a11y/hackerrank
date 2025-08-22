@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int cmp(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int toys(int w[], int n) {
+    
+    qsort(w, n, sizeof(int), cmp);
+
+    int containers = 0;
+    int i = 0;
+
+    while (i < n) {
+        containers++;
+        int base = w[i];  
+        int limit = base + 4;
+
+         [base, base+4]
+        while (i < n && w[i] <= limit) {
+            i++;
+        }
+    }
+
+    return containers;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int w[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &w[i]);
+    }
+
+    int result = toys(w, n);
+    printf("%d\n", result);
+
+    return 0;
+}
